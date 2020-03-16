@@ -15,7 +15,7 @@ node('ben') {
                     relativeTargetDir: '/home/benlue/openwrt']], 
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
-                //sh label: 'Preparation', script: 'source $SYSTEM_PATH/build_script/preparation.sh'
+                sh label: 'Preparation', script: 'source $SYSTEM_PATH/build_script/preparation.sh'
             }
             stage('RepoSync') { // for display purposes
                 //sh label: 'RepoSync', script: 'source $SYSTEM_PATH/build_script/reposync.sh'
