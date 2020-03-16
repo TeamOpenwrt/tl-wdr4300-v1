@@ -9,15 +9,12 @@ node('ben') {
             stage('Preparation') { // for display purposes
             
                 checkout([$class: 'GitSCM', 
-                branches: [[name: "$BRANCH"]], 
-                doGenerateSubmoduleConfigurations: false, 
-                extensions: [[$class: 'CleanBeforeCheckout', 
-                deleteUntrackedNestedRepositories: true], 
-                [$class: 'RelativeTargetDirectory', relativeTargetDir: '/home/benlue/openwrt']], 
-                submoduleCfg: [], 
-                userRemoteConfigs: [[credentialsId: 'e1791597-2cce-40b2-8357-fcbc77a559d5', 
-                url: "https://github.com/openwrt/openwrt.git"]]
-                ])
+                    branches: [[name: "$BRANCH"]], 
+                    doGenerateSubmoduleConfigurations: false, 
+                    extensions: [[$class: 'RelativeTargetDirectory', 
+                    relativeTargetDir: '/home/benlue/openwrt']], 
+                    submoduleCfg: [], 
+                    userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
                 //sh label: 'Preparation', script: 'source $SYSTEM_PATH/build_script/preparation.sh'
             }
             stage('RepoSync') { // for display purposes
