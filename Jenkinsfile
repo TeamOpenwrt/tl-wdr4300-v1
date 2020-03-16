@@ -16,7 +16,7 @@ node('ben') {
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
                 sh label: 'Clone', script: 'git clone https://github.com/TeamOpenwrt/tl-wdr4300-v1.git $SYSTEM_PATH/build_script'
-                sh label: 'Preparation', script: 'source $SYSTEM_PATH/preparation.sh'
+                sh label: 'Preparation', script: 'source $SYSTEM_PATH/build_script/preparation.sh'
             }
             stage('RepoSync') { // for display purposes
                 //sh label: 'RepoSync', script: 'source $SYSTEM_PATH/build_script/reposync.sh'
