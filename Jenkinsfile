@@ -9,7 +9,7 @@ node('ben') {
             
             stage('DEVICE Preparation') {        
                 checkout([$class: 'GitSCM'
-                    branches: [[name: "$BRANCH"]], 
+                    branches: [[name: 'openwrt-19.07']], 
                     doGenerateSubmoduleConfigurations: false, 
                     extensions: [[$class: 'CleanBeforeCheckout', 
                     deleteUntrackedNestedRepositories: true], 
@@ -21,7 +21,7 @@ node('ben') {
             stage('OpenWRT Preparation') { // for display purposes
             
                 checkout([$class: 'GitSCM', 
-                    branches: [[name: "$BRANCH"]], 
+                    branches: [[name: 'openwrt-19.07']], 
                     doGenerateSubmoduleConfigurations: false, 
                     extensions: [[$class: 'CleanBeforeCheckout', 
                     deleteUntrackedNestedRepositories: true], 
