@@ -13,6 +13,7 @@ cd ${ROOT_DIR}
 
 #./scripts/feeds update -a
 #./scripts/feeds install -a
+echo $PWD
 ls -lah /build_script
 
 cp -R /build_script/diffconfig .config
