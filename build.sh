@@ -15,7 +15,7 @@ cd ${ROOT_DIR}
 #./scripts/feeds install -a
 ls -lah
 
-cp /build_script/diffconfig $ROOT_DIR/.config
+cp -R /build_script/diffconfig .config
 cat diffconfig >> .config
 make defconfig
 
