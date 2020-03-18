@@ -13,11 +13,11 @@ cd ${ROOT_DIR}
 
 #./scripts/feeds update -a
 #./scripts/feeds install -a
-echo $PWD
-ls -lah $PWD/build_script
+#echo $PWD
+#ls -lah $PWD/build_script
 
-cp -R $PWD/build_script/diffconfig .config
-cat diffconfig >> .config
+#cp -R $PWD/build_script/diffconfig .config
+cat $PWD/build_script/diffconfig >> .config
 make defconfig
 
 #make clean
