@@ -15,14 +15,12 @@ mkdir -p files
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-#config target
-#rm -rf .config
 #echo "CONFIG_TARGET_ar71xx=y" > .config
 #echo "CONFIG_TARGET_ar71xx_generic=y" > .config
 #echo "CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wdr4300-v1=y" > .config
 
 
 #make clean
-cp build_script/tl-wdr4300-v1.config ${ROOT_DIR}
+cat /build_script/diffconfig >> .config
 make defconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
