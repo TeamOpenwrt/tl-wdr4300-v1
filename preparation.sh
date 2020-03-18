@@ -38,9 +38,9 @@ git checkout -f ${OPENWRT_VERSION}
 #patch ${ROOT_DIR}/openwrt/target/linux/generic/config-4.14 < ${ROOT_DIR}/configs/kernel-config.patch
 
 rm -rf ${ROOT_DIR}/openwrt/files
-cp -r ${ROOT_DIR}/root_files ${ROOT_DIR}/openwrt/files
+#cp -r ${ROOT_DIR}/root_files ${ROOT_DIR}/openwrt/files
 
-cp ${ROOT_DIR}/configs/${TARGET}.config ${ROOT_DIR}/openwrt/.config
+#cp ${ROOT_DIR}/configs/${TARGET}.config ${ROOT_DIR}/openwrt/.config
 make defconfig
 
 make clean
