@@ -7,7 +7,7 @@ export PATH=~/bin:$PATH
 SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ROOT_DIR=${SCRIPTS_DIR}/..
 cd ${ROOT_DIR}
-
+mkdir -p files
 # Install all necessary packages
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
@@ -23,5 +23,5 @@ cd ${ROOT_DIR}
 
 #make defconfig
 #make clean
-
+cp build_script/tl-wdr4300-v1.config ${ROOT_DIR}
 make -j$(nproc) || make V=s # Retry with full log if failed
