@@ -17,6 +17,7 @@ node('ben') {
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
                 
+                checkout([$class: 'GitSCM'
                     branches: [[name: "$BRANCH"]], 
                     doGenerateSubmoduleConfigurations: false, 
                     extensions: [[$class: 'CleanBeforeCheckout', 
