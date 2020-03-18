@@ -21,6 +21,6 @@ mkdir -p files
 
 
 #make clean
-make defconfig
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
+make defconfig;make oldconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
