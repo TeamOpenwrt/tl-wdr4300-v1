@@ -6,7 +6,19 @@ node('ben') {
             'SYSTEM_PATH=/home/benlue/openwrt',
             'OUTPUT_PATH=/home/benlue/openwrt/out/target/product',
             ]) {
-            stage('Preparation') { // for display purposes
+            
+            stage('DEVICE Preparation') {        
+                checkout([$class: 'GitSCM'
+                    branches: [[name: "$BRANCH"]], 
+                    doGenerateSubmoduleConfigurations: false, 
+                    extensions: [[$class: 'CleanBeforeCheckout', 
+                    deleteUntrackedNestedRepositories: true], 
+                    [$class: 'RelativeTargetDirectory', relativeTargetDir: '/home/benlue/openwrt/build_script']], 
+                    submoduleCfg: [], 
+                    userRemoteConfigs: [[url: 'https://github.com/TeamOpenwrt/tl-wdr4300-v1.git']]])
+            }
+            
+            stage('OpenWRT Preparation') { // for display purposes
             
                 checkout([$class: 'GitSCM', 
                     branches: [[name: "$BRANCH"]], 
