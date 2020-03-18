@@ -11,15 +11,13 @@ cd ${ROOT_DIR}
 # Install all necessary packages
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
-#./scripts/feeds update -a
-#./scripts/feeds install -a
-#echo $PWD
-#ls -lah $PWD/build_script
+./scripts/feeds update -a
+./scripts/feeds install -a
 
-#cp -R $PWD/build_script/diffconfig .config
 cat $PWD/build_script/diffconfig >> .config
+cat .config
 make defconfig
 
-#make clean
+make clean
 
-#make -j$(nproc) || make V=s # Retry with full log if failed
+make -j$(nproc) || make V=s # Retry with full log if failed
