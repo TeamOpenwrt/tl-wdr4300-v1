@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copyright (C) 2020 The TeamOpenWRT Open Source Project
 # BenLue
-set +xe
+set -xe
 export PATH=~/bin:$PATH
 
 SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
