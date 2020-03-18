@@ -4,15 +4,45 @@
 set +xe
 export PATH=~/bin:$PATH
 
+#!/bin/bash
+set -e
+set -x
+
+TARGET=$1
+OPENWRT_VERSION="v18.06.1"
+
+
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+ROOT_DIR=${SCRIPTS_DIR}/..
+cd ${ROOT_DIR}
+
+# Install all necessary packages
+#sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
+
+if [[ ! -d openwrt/.git ]]
+then
+    rm -rf openwrt
+    git clone https://github.com/openwrt/openwrt.git openwrt
+fi
+
+cd ${ROOT_DIR}/openwrt
+git fetch -a
+
+git reset --hard HEAD^
+git checkout -f ${OPENWRT_VERSION}
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-rm -rf /home/benlue/openwrt/.config/wdr4300.base.config
-wget https://www.twist.tu-berlin.de/_downloads/69d6a8db1986cae83afbbec2bc44019b/wdr4300.base.config -O /home/benlue/openwrt/.config/wdr4300.base.config
+# Patch kernel config to enable nf_conntrack_events
+patch ${ROOT_DIR}/openwrt/target/linux/generic/config-4.14 < ${ROOT_DIR}/configs/kernel-config.patch
 
-rm -rf /home/benlue/openwrt/target/linux/ar71xx/config-3.18
-wget https://www.twist.tu-berlin.de/_downloads/40d30713599afc3e747f35e0b5398b9b/wdr4300.base.kernel.config -O /home/benlue/openwrt/target/linux/ar71xx/config-4.14
+rm -rf ${ROOT_DIR}/openwrt/files
+cp -r ${ROOT_DIR}/root_files ${ROOT_DIR}/openwrt/files
 
-make oldconfig
+cp ${ROOT_DIR}/configs/${TARGET}.config ${ROOT_DIR}/openwrt/.config
+make defconfig
 
-make V=s
+make clean
+
+make -j$(nproc) || make V=s # Retry with full log if failed
