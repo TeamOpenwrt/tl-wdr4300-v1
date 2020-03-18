@@ -35,7 +35,7 @@ git checkout -f ${OPENWRT_VERSION}
 ./scripts/feeds install -a
 
 # Patch kernel config to enable nf_conntrack_events
-patch ${ROOT_DIR}/openwrt/target/linux/generic/config-4.14 < ${ROOT_DIR}/configs/kernel-config.patch
+#patch ${ROOT_DIR}/openwrt/target/linux/generic/config-4.14 < ${ROOT_DIR}/configs/kernel-config.patch
 
 rm -rf ${ROOT_DIR}/openwrt/files
 cp -r ${ROOT_DIR}/root_files ${ROOT_DIR}/openwrt/files
