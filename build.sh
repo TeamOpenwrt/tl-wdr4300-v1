@@ -11,8 +11,9 @@ cd ${ROOT_DIR}
 # Install all necessary packages
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+//./scripts/feeds update -a
+//./scripts/feeds install -a
+ls -lah
 
 cp $ROOT_DIR/build_script/diffconfig $ROOT_DIR/.config
 cat diffconfig >> .config
