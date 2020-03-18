@@ -14,7 +14,7 @@ node('ben') {
             }
             stage('DEVICE Preparation') { // for display purposes
                 //sh label: 'RepoSync', script: 'source $SYSTEM_PATH/build_script/reposync.sh'
-                checkout([$class: 'GitSCM', branches: [[name: '*/openwrt-19.07']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'RelativeTargetDirectory', relativeTargetDir: '/home/benlue/openwrt/build_script']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/TeamOpenwrt/tl-wdr4300-v1.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'RelativeTargetDirectory', relativeTargetDir: "$ROOT_DIR/build_script"]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/TeamOpenwrt/tl-wdr4300-v1.git']]])
             }
             stage('Build') { // for display purposes
                 //sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
