@@ -21,7 +21,8 @@ mkdir -p files
 #echo "CONFIG_TARGET_ar71xx_generic=y" > .config
 #echo "CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wdr4300-v1=y" > .config
 
-#make defconfig
+
 #make clean
 cp build_script/tl-wdr4300-v1.config ${ROOT_DIR}
+make defconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
