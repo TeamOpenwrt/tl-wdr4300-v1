@@ -11,8 +11,8 @@ node('ben') {
                 checkout([$class: 'GitSCM', 
                     branches: [[name: "$BRANCH"]], 
                     doGenerateSubmoduleConfigurations: false, 
-                    extensions: [[$class: 'RelativeTargetDirectory', 'CleanBeforeCheckout', 
-                    relativeTargetDir: '/home/benlue/openwrt']], 
+                    extensions: [[$class: 'RelativeTargetDirectory', 'CleanBeforeCheckout'], 
+                    [$class: relativeTargetDir: '/home/benlue/openwrt']], 
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
                 sh label: 'Clone', script: 'git clone https://github.com/TeamOpenwrt/tl-wdr4300-v1.git $SYSTEM_PATH/build_script'
