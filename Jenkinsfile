@@ -9,15 +9,12 @@ node('ben') {
         
             stage('OpenWRT Preparation') {
                 checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'RelativeTargetDirectory', relativeTargetDir: "$ROOT_DIR"]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
-                //sh label: 'Clone', script: 'git clone https://github.com/TeamOpenwrt/tl-wdr4300-v1.git $SYSTEM_PATH/build_script'
-                //sh label: 'Preparation', script: 'source $SYSTEM_PATH/build_script/preparation.sh'
             }
             stage('DEVICE Preparation') { // for display purposes
-                //sh label: 'RepoSync', script: 'source $SYSTEM_PATH/build_script/reposync.sh'
                 checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'RelativeTargetDirectory', relativeTargetDir: "$ROOT_DIR/build_script"]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/TeamOpenwrt/tl-wdr4300-v1.git']]])
             }
             stage('Build') { // for display purposes
-                //sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
+                //sh label: 'Build', script: 'source $ROOT_DIR/build_script/build.sh'
             }
             stage('OTA Upload') { // for display purposes
                 //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
