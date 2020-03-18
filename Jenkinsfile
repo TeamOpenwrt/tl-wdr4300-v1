@@ -11,7 +11,7 @@ node('ben') {
                 checkout([$class: 'GitSCM', 
                     branches: [[name: "$BRANCH"]], 
                     doGenerateSubmoduleConfigurations: false, 
-                    extensions: [[$class: 'RelativeTargetDirectory', 
+                    extensions: [[$class: 'RelativeTargetDirectory', 'CleanBeforeCheckout', 
                     relativeTargetDir: '/home/benlue/openwrt']], 
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/openwrt/openwrt.git']]])
