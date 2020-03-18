@@ -14,7 +14,7 @@ cd ${ROOT_DIR}
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-cp ${ROOT_DIR}/build_script/diffconfig ${ROOT_DIR}/openwrt/.config
+cp $ROOT_DIR/build_script/diffconfig $ROOT_DIR/openwrt/.config
 cat diffconfig >> .config
 make defconfig
 
