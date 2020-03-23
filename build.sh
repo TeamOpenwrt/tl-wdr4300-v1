@@ -19,6 +19,9 @@ mkdir -p $ROOT_DIR/$OPENWRT_CONFIG_DIR
 # make clean
 
 cp /$SCRIPT_DIR/system $OPENWRT_CONFIG_DIR
+cp /$SCRIPT_DIR/firewall $OPENWRT_CONFIG_DIR
+cp /$SCRIPT_DIR/network $OPENWRT_CONFIG_DIR
+cp /$SCRIPT_DIR/wireless $OPENWRT_CONFIG_DIR
 
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
 make defconfig;make oldconfig
