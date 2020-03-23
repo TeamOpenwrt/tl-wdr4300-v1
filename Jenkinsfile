@@ -6,7 +6,7 @@ node('ben') {
             'ROOT_DIR=home/benlue/openwrt',
             'OPENWRT_CONFIG_DIR=files/etc/config',
             'SCRIPT_DIR=home/benlue/openwrt/build_script',
-            'OUTPUT_PATH=/home/benlue/openwrt/out/target/product',
+            'OUTPUT_PATH=home/benlue/openwrt/out/target/product',
             ]) {
         
             stage('OpenWRT Preparation') {
