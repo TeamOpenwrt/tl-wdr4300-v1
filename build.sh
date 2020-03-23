@@ -17,5 +17,14 @@ mkdir -p files
 
 #make clean
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
+## ToDo; cp config files
+# system
+
+# firewall
+
+# network
+
+# wireless
+
 make defconfig;make oldconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
