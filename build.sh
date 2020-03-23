@@ -12,11 +12,13 @@ ls -lah $ROOT_DIR/$OPENWRT_CONFIG_DIR/
 # Install all necessary packages
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
+# Clean Workspace
+make clean
+
 #feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-make clean
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
 
 ## ToDo; cp config files
