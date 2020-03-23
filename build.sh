@@ -13,8 +13,8 @@ mkdir -p /$ROOT_DIR/$OPENWRT_CONFIG_DIR
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
 #feeds
-./scripts/feeds update -a
-./scripts/feeds install -a
+#./scripts/feeds update -a
+#./scripts/feeds install -a
 
 # make clean
 
