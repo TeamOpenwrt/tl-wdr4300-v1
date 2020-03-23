@@ -16,7 +16,7 @@ ls -lah $ROOT_DIR/$OPENWRT_CONFIG_DIR/
 #./scripts/feeds update -a
 #./scripts/feeds install -a
 
-#make clean
+make clean
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
 
 ## ToDo; cp config files
@@ -30,7 +30,7 @@ cp /$SCRIPT_DIR/firewall $OPENWRT_CONFIG_DIR
 cp /$SCRIPT_DIR/network $OPENWRT_CONFIG_DIR
 
 # wireless
-cp /$SCRIPT_DIR/network $OPENWRT_CONFIG_DIR
+cp /$SCRIPT_DIR/wireless $OPENWRT_CONFIG_DIR
 
 make defconfig;make oldconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
