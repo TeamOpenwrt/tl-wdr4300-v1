@@ -18,7 +18,7 @@ mkdir -p $ROOT_DIR/$OPENWRT_CONFIG_DIR
 
 # make clean
 
-cp /$SCRIPT_DIR/system /$OPENWRT_CONFIG_DIR/
+cp $ROOT_DIR/$SCRIPT_DIR/system $OPENWRT_CONFIG_DIR
 
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
 make defconfig;make oldconfig
