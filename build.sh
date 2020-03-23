@@ -8,7 +8,7 @@ SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ROOT_DIR=${SCRIPTS_DIR}/..
 cd ${ROOT_DIR}
 
-mkdir -p /$ROOT_DIR/$OPENWRT_CONFIG_DIR
+mkdir -p $ROOT_DIR/$OPENWRT_CONFIG_DIR
 # Install all necessary packages
 #sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core libssl-dev unzip python wget time
 
