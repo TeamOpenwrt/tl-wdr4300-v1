@@ -32,5 +32,6 @@ cp /$SCRIPT_DIR/network $OPENWRT_CONFIG_DIR
 # wireless
 cp /$SCRIPT_DIR/wireless $OPENWRT_CONFIG_DIR
 
+cat ${ROOT_DIR}/build_script/diffconfig >> .config
 make defconfig;make oldconfig
 make -j$(nproc) || make V=s # Retry with full log if failed
