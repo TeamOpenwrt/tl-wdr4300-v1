@@ -3,6 +3,9 @@
 # BenLue
 set -xe
 export PATH=~/bin:$PATH
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )	mkdir -p $ROOT_DIR/$OPENWRT_CONFIG_DIR/
+ROOT_DIR=${SCRIPTS_DIR}/..	ls -lah $ROOT_DIR/$OPENWRT_CONFIG_DIR/
+cd ${ROOT_DIR}
 
 mkdir -p $ROOT_DIR/$OPENWRT_CONFIG_DIR/
 ls -lah $ROOT_DIR/$OPENWRT_CONFIG_DIR/
