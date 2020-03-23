@@ -15,11 +15,6 @@ mkdir -p files
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-#echo "CONFIG_TARGET_ar71xx=y" > .config
-#echo "CONFIG_TARGET_ar71xx_generic=y" > .config
-#echo "CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wdr4300-v1=y" > .config
-
-
 #make clean
 cat ${ROOT_DIR}/build_script/diffconfig >> .config
 make defconfig;make oldconfig
